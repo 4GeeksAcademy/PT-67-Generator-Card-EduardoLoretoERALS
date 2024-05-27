@@ -2,13 +2,15 @@ import "bootstrap";
 import "./style.css";
 
 window.onload = () => {
-  document.querySelector(".card").classList.add(generateRandomSimbol());
-  document.querySelector(".card").innerHTML = generateRandomNumber();
-  document.querySelector(".btn").addEventListener("click", window.onload);
+  generateCard();
+  document
+    .querySelector("#generate-button")
+    .addEventListener("click", generateCard);
 };
 
-let generateRandomNumber = () => {
-  let number = [
+function generateCard() {
+  const symbols = ["♦", "♥", "♠", "♣"];
+  const numbers = [
     "A",
     "2",
     "3",
@@ -23,12 +25,25 @@ let generateRandomNumber = () => {
     "Q",
     "K"
   ];
-  let indexNumber = Math.floor(Math.random() * number.length);
-  return number[indexNumber];
-};
 
-let generateRandomSimbol = () => {
-  let simbol = ["♦", "♥", "♠", "♣"];
-  let indexsimbol = Math.floor(Math.random() * simbol.length);
-  return simbol[indexsimbol];
-};
+  const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+  const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+
+  const topSymbolElement = document.getElementById("top-symbol");
+  const numberElement = document.getElementById("number");
+  const bottomSymbolElement = document.getElementById("bottom-symbol");
+
+  topSymbolElement.textContent = randomSymbol;
+  numberElement.textContent = randomNumber;
+  bottomSymbolElement.textContent = randomSymbol;
+
+  if (randomSymbol === "♦" || randomSymbol === "♥") {
+    topSymbolElement.style.color = "red";
+    numberElement.style.color = "red";
+    bottomSymbolElement.style.color = "red";
+  } else {
+    topSymbolElement.style.color = "black";
+    numberElement.style.color = "black";
+    bottomSymbolElement.style.color = "black";
+  }
+}

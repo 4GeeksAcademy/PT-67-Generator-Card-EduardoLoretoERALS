@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Card</title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
   <body
@@ -18,18 +12,22 @@
     <div class="card container-fluid text-center p-5 mb-5">
       <div
         class="simbol h-25 simbol-top d-flex justify-content-start align-items-end"
+        id="top-symbol"
       ></div>
       <div
-        class="h-50 d-flex justify-content-center align-items-center"
+        class="d-flex justify-content-center h-50 align-items-center"
         id="number"
       ></div>
       <div
         class="simbol h-25 d-flex justify-content-end align-items-start"
+        id="bottom-symbol"
         style="transform: scaleY(-1)"
       ></div>
     </div>
-    <button type="button" class="m-1 btn btn-light">
+    <button type="button" class="m-1 btn btn-light" id="generate-button">
       ¡Adivina!
     </button>
+
+    <script src="index.js"></script>
   </body>
 </html>
